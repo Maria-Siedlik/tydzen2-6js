@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+      <title>Document</title>
+      <style>
+         .App {
+            font-family: sans-serif;
+         }
+         .Timebox-Editor {
+            text-align: right;
+            border: 1px solid gray;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+         }
+         input {
+            min-width: 60%;
+            margin-left: 20px;
+            font-size: 16px;
+         }
+         button {
+            font-size: 16px;
+            margin-left: 10px;
+         }
+         .Timebox {
+            border: 1px solid gray;
+            border-radius: 5px;
+            padding: 20px;
+            text-align: center;
+         }
+         .Clock {
+            color: orange;
+         }
+         .ProgressBar {
+            border: 1px solid orange;
+            border-radius: 5px;
+            height: 25px;
+            margin-bottom: 20px;
+            padding: 5px;
+         }
+         .ProgressBar > div {
+            height: 100%;
+            background-color: orange;
+         }
+         .inactive {
+            filter: blur(2px) grayscale(1);
+         }
+      </style>
+   </head>
+   <body>
+      <h1>Kurs Reacta Tydzień 2 zadanie1 do lekcji 6</h1>
+      <div id="root"></div>
+
+      <script type="text/javascript">
+         const rootElement = document.getElementById('root');
+         const TimeboxEditor = document.createElement('div');
+         TimeboxEditor.className = 'Timebox-Editor inactive';
+         rootElement.append(TimeboxEditor);
+
+         const label1 = document.createElement('label');
+         const label2 = document.createElement('label');
+         TimeboxEditor.appendChild(label1);
+         TimeboxEditor.appendChild(label2);
+
+         label1.innerHTML = 'Co robisz? ';
+         label2.innerHTML = 'Ile minut:';
+
+         const input1 = document.createElement('input');
+         input1.type = 'text';
+         input1.value = 'Uczę się skrótw klawiszowych';
+         const input2 = document.createElement('input');
+         input2.type = 'text';
+         input2.value = '25 min';
+         const lineBreake1 = document.createElement('br');
+         const lineBreake2 = document.createElement('br');
+         label1.appendChild(input1);
+         label1.append(lineBreake1);
+         label2.appendChild(input2);
+         label2.append(lineBreake2);
+
+         const button1 = document.createElement('button');
+         button1.innerText = 'Zacznij';
+         TimeboxEditor.appendChild(button1);
+
+         const Timebox = document.createElement('div');
+         Timebox.className = 'Timebox';
+         rootElement.append(Timebox);
+
+         const header1 = document.createElement('h1');
+         header1.innerText = 'W trakcie time boksa uczę się skrótów klawiszowych';
+         Timebox.append(header1);
+
+         const header2 = document.createElement('h2');
+         header2.className = 'Clock';
+         header2.innerText = 'Pozozstało 13 min 32 sekund';
+         Timebox.append(header2);
+
+         const ProgressBar = document.createElement('div');
+         ProgressBar.className = 'ProgressBar';
+         Timebox.append(ProgressBar);
+         // const orangeFill = document.createElement('div');
+         // ProgressBar.appendChild(orangeFill);
+         ProgressBar.innerHTML = "<div style='width:45%' ></div>";
+
+         const btn1 = document.createElement('button');
+         btn1.innerText = 'Start';
+         btn1.disabled = true;
+         Timebox.append(btn1);
+
+         const btn2 = document.createElement('button');
+         btn2.innerText = 'Stop';
+         Timebox.append(btn2);
+
+         const btn3 = document.createElement('button');
+         btn3.innerText = 'Pauza';
+         Timebox.append(btn3);
+         const lineBreake3 = document.createElement('br');
+         Timebox.append(lineBreake3);
+         const tekst = 'Liczba przerw: 2';
+         Timebox.append(tekst);
+      </script>
+   </body>
+</html>
